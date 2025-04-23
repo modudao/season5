@@ -13,7 +13,7 @@ function Membership() {
   const [isMembership, setIsMembership] = useState(false);
   const [memberMetadata, setMemberMetadata] = useState([]);
 
-  const nftAddress = "0xdaa59a82A6191F3AE28a7E95513163Aa22098A97";
+  const nftAddress = "0xF9b760813FA89B79Dc1aD8df61F792b072c54ce9";
   const mintAbi = '{"constant":false,"inputs":[],"name":"mint","outputs":[],"payable":true,"stateMutability":"payable","type":"function"}';
   const nftAbi = [{
     "inputs": [],
@@ -65,8 +65,7 @@ function Membership() {
   }
 
   useEffect(() => {
-    const provider = new ethers.JsonRpcProvider("https://public-en-cypress.klaytn.net");
-    // const provider = new ethers.JsonRpcProvider("https://klaytn.drpc.org");
+    const provider = new ethers.JsonRpcProvider("https://public-en.node.kaia.io");
     const nftContract = new ethers.Contract(nftAddress, nftAbi, provider);
 
     const checkMembershipStatus = async () => {
@@ -158,8 +157,8 @@ function Membership() {
         <div className='membership-body-wrapper'>
           <div className='membership-body-text'>맴버십을 구매하세요</div>
           <img className='modu-nft-image' style={{ width: 259, height: 259 }} src={daolabnft} />
-          <div className='membership-body-text-sub'>2024 다오랩 3기 시작을 기념하기 위한 NFT 카드입니다. 이 NFT는 양도가 불가능한 SBT입니다.</div>
-          <div className='membership-body-text-sub2'>*가격: 10 KLAY</div>
+          <div className='membership-body-text-sub'>2025 다오랩 5기 시작을 기념하기 위한 NFT 카드입니다. 이 NFT는 양도가 불가능한 SBT입니다.</div>
+          <div className='membership-body-text-sub2'>*가격: 10 KAIA</div>
           <button className='membership-button' onClick={mintNFT}>
             <div className='faucet-button-text'>구매</div>
           </button>

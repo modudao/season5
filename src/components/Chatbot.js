@@ -14,21 +14,21 @@ const Chatbot = () => {
 
   const handleSubmit = async (event) => {
     const storedAddress = localStorage.getItem('klipAddress');
-    // if (storedAddress && inputValue != "" && !loading) {
-    //   event.preventDefault();
-    //   setLoading(true);
+    if (storedAddress && inputValue != "" && !loading) {
+      event.preventDefault();
+      setLoading(true);
 
-    //   try {
-    //     const response = await axios.post('https://ib9fm6yjjg.execute-api.ap-northeast-2.amazonaws.com/ctp/md-gpt', { useraddress: storedAddress, prompt: inputValue });
-    //     const data = await response.data;
+      try {
+        const response = await axios.post('https://ib9fm6yjjg.execute-api.ap-northeast-2.amazonaws.com/ctp/md-gpt', { useraddress: storedAddress, prompt: inputValue });
+        const data = await response.data;
 
-    //     setApiResponse(data.message);
-    //   } catch (error) {
-    //     setApiResponse('API 호출 중 오류가 발생했습니다.');
-    //   } finally {
-    //     setLoading(false);
-    //   }
-    // }
+        setApiResponse(data.message);
+      } catch (error) {
+        setApiResponse('API 호출 중 오류가 발생했습니다.');
+      } finally {
+        setLoading(false);
+      }
+    }
   };
 
   return (

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { prepare, getResult } from 'klip-sdk';
 import axios from 'axios';
 
-import smile from '../assets/smile.png';
+// import smile from '../assets/smile.png';
 import './Faucet.css';
 
 const Faucet = () => {
@@ -17,7 +17,7 @@ const Faucet = () => {
     e.preventDefault();
     const storedAddress = localStorage.getItem('klipAddress');
     if (storedAddress && userName != "") {
-      const postParams = { "username": userName, "useraddress": storedAddress };
+      const postParams = { "username": userName, "useraddress": storedAddress, "season": 5 };
       // console.log("postParams", postParams);
 
       axios.post('https://ib9fm6yjjg.execute-api.ap-northeast-2.amazonaws.com/ctp/md-user', postParams)
@@ -37,7 +37,7 @@ const Faucet = () => {
       {!isClaimed ? (
         <div className='faucet-body-wrapper'>
           <div className='faucet-body-text'>닉네임을 입력하세요</div>
-          <div className='faucet-body-text-sub'>모두다오에 오신걸 환영합니다! 닉네임 입력 후 KLAY를 받아가세요!</div>
+          <div className='faucet-body-text-sub'>모두다오에 오신걸 환영합니다! 닉네임 입력 후 KAIA를 받아가세요!</div>
           <div className='faucet-button-wrapper'>
             <input className='faucet-button-input' type='text' placeholder='1자 이상을 입력하세요' onChange={handleInputChange}>
             </input>
@@ -50,7 +50,7 @@ const Faucet = () => {
         <div className='faucet-body-wrapper'>
           <div className='faucet-body-text-wrapper'>
             <div className='faucet-body-text'>{userName} 님,</div>
-            <img className='modu-logo-image' style={{ width: 62, height: 62 }} src={smile} />
+            {/* <img className='modu-logo-image' style={{ width: 62, height: 62 }} src={smile} /> */}
           </div>
           <div className='faucet-body-text'>만나서 반갑습니다!</div>
           <div className='faucet-category-wrapper'>
