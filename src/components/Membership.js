@@ -13,7 +13,7 @@ function Membership() {
   const [isMembership, setIsMembership] = useState(false);
   const [memberMetadata, setMemberMetadata] = useState([]);
 
-  const nftAddress = "0xF9b760813FA89B79Dc1aD8df61F792b072c54ce9";
+  const nftAddress = "0xfe4631EAf2ae3d77A28a2CB5643C7Df4150862eB";
   const mintAbi = '{"constant":false,"inputs":[],"name":"mint","outputs":[],"payable":true,"stateMutability":"payable","type":"function"}';
   const nftAbi = [{
     "inputs": [],
